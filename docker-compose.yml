@@ -1,0 +1,16 @@
+version: "1"
+services:
+  gas-worker:
+    image: node:8
+    working_dir: /server
+    networks:
+      - backend
+    volumes:
+      - /var/app/gas-worker:/server
+    restart: always
+    command: npm start
+
+networks:
+  backend:
+    external:
+      name: dbf_dAPI
